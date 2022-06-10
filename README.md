@@ -1,5 +1,8 @@
 # Avana
 
+
+![Avana_Splash](https://user-images.githubusercontent.com/52071881/171573614-2625248f-ff48-4c45-a1d4-25ff0a0446b6.png)
+
 Avana in Sanskrit means protection. Hence this app, in its literal meaning is providing protection to those in need. This app helps in calling for any kind of help according to your condition and type of problem at the time. The application is easy to use since it is specially designed for senior citizens and physically specially-abled people.
 
 Initially, the user has to sign in with their personal details such as name, age and their phone number. The user has to then answer a quick questionnaire about their willingness to help others, if they are PwD, and if they feel they need support when outdoors. 
