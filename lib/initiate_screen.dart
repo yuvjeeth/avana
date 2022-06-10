@@ -305,7 +305,7 @@ class _InitiateScreen extends State<InitiateScreen> {
                   Padding(
                     padding: EdgeInsets.only(bottom: 10),
                     child: Text(
-                      "By Yuvjeeth HS",
+                      "By Yuvjeeth HS\nPushpalatha M",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 16,
