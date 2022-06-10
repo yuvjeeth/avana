@@ -15,24 +15,12 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return AdaptiveTheme(
-      light: ThemeData(
-        brightness: Brightness.light,
+    return MaterialApp(
+      title: 'Avana',
+      theme: new ThemeData(
         primarySwatch: Colors.green,
-        accentColor: Colors.green,
       ),
-      dark: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.lightGreen,
-        accentColor: Colors.lightGreen,
-      ),
-      initial: AdaptiveThemeMode.system,
-      builder: (theme, darkTheme) => MaterialApp(
-        title: 'Avana',
-        theme: theme,
-        darkTheme: darkTheme,
-        home: const PersonalDetailsScreen(),
-      ),
+      home: const PersonalDetailsScreen(),
     );
   }
 }
