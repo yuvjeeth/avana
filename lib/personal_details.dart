@@ -71,15 +71,21 @@ class _PersonalDetailsScreen extends State<PersonalDetailsScreen> {
       var age = int.tryParse(txtAge.text);
       age == null ? age = 0 : age = age;
       if (age > 12 && age < 100) {
-        global.personName = txtName.text;
-        global.personAge = txtAge.text;
-        savePersonalDetails();
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const InitiateScreen(title: "Avana"),
-          ),
-        );
+        if (txtPhone.text.isNotEmpty) {
+          global.personName = txtName.text;
+          global.personAge = txtAge.text;
+          global.phoneNumber = txtPhone.text;
+          savePersonalDetails();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const InitiateScreen(title: "Avana"),
+            ),
+          );
+        } else {
+          Fluttertoast.showToast(
+              msg: "Please enter a valid 10-digit phone number");
+        }
       } else {
         Fluttertoast.showToast(
             msg: "Please enter a valid age between 12 and 100.");
@@ -206,7 +212,7 @@ class _PersonalDetailsScreen extends State<PersonalDetailsScreen> {
                 Hero(
                   tag: 'assistButton',
                   child: ElevatedButton(
-                    onPressed: signUp,
+                    onPressed: () => signUp(),
                     child: const Text(
                       "Sign Up",
                       textAlign: TextAlign.center,

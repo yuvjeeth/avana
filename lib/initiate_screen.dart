@@ -339,7 +339,7 @@ class _InitiateScreen extends State<InitiateScreen> {
                       style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                          color: Colors.green),
                     ),
                   ),
                   ButtonBar(
@@ -349,7 +349,7 @@ class _InitiateScreen extends State<InitiateScreen> {
                         child: const Text("No"),
                       ),
                       TextButton(
-                        onPressed: deleteUserData,
+                        onPressed: () => deleteUserData(),
                         child: const Text("Yes"),
                       ),
                     ],
@@ -365,6 +365,7 @@ class _InitiateScreen extends State<InitiateScreen> {
     final Directory directory = await getApplicationDocumentsDirectory();
     final File file = File('${directory.path}/personalDetails.txt');
     file.deleteSync();
+    global.personName = global.personAge = global.phoneNumber = "";
     Navigator.pop(context);
     Navigator.pushReplacement(
       context,

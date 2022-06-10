@@ -3,6 +3,7 @@ import 'package:humanitarian_icons/humanitarian_icons.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:mqtt_client/mqtt_client.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'global.dart' as global;
 
 class CallReceiveScreen extends StatefulWidget {
@@ -29,6 +30,16 @@ class CallReceiveScreen extends StatefulWidget {
 
 class _CallReceiveScreen extends State<CallReceiveScreen> {
   void empty() {}
+
+  void launchPhone(String number) async {
+    FlutterRingtonePlayer.stop();
+    String url = "tel:" + number;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   void initState() {
@@ -151,12 +162,26 @@ class _CallReceiveScreen extends State<CallReceiveScreen> {
                         fontSize: 48,
                       ),
                     ),
+                    const Padding(padding: EdgeInsets.symmetric(vertical: 12)),
+                    TextButton(
+                      onPressed: widget.phoneNumber != ""
+                          ? () => launchPhone(widget.phoneNumber)
+                          : null,
+                      child: Text(
+                        widget.phoneNumber,
+                        style:
+                            const TextStyle(fontSize: 30, color: Colors.white),
+                      ),
+                    ),
+                    widget.phoneNumber != ""
+                        ? const Text("Tap the number to call")
+                        : const Text(""),
                   ],
                 ),
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(MediaQuery.of(context).size.width,
                       MediaQuery.of(context).size.height * 0.5),
-                  primary: widget.alert ? Colors.red : Colors.blue,
+                  primary: widget.alert ? Colors.red : Colors.green,
                 ),
               ),
             ),
