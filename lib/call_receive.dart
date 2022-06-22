@@ -59,6 +59,7 @@ class _CallReceiveScreen extends State<CallReceiveScreen> {
     super.dispose();
     FlutterRingtonePlayer.stop();
     global.receivingCall = false;
+    global.callerName = "";
   }
 
   void startNavigation() {

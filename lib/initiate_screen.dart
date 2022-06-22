@@ -158,6 +158,7 @@ class _InitiateScreen extends State<InitiateScreen> {
 
     if (message.split(":").length == 5 &&
         global.receivingCall == false &&
+        global.sendingCall == false &&
         message.split(':')[1] != global.personName) {
       var index = global.reasons.indexOf(message.split(":")[4]);
       global.callerName = message.split(":")[1];

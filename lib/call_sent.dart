@@ -29,6 +29,7 @@ class _CallSentScreen extends State<CallSentScreen> {
     super.initState();
     global.receiverName = "";
     global.receiverPhone = "";
+    global.sendingCall = true;
     refresh = Timer.periodic(const Duration(seconds: 5), (timer) {
       log("Refresh State");
 
@@ -41,6 +42,7 @@ class _CallSentScreen extends State<CallSentScreen> {
     super.dispose();
     refresh.cancel();
     global.callCancelled = true;
+    global.sendingCall = false;
   }
 
   void launchPhone(String number) async {

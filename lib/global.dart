@@ -18,6 +18,7 @@ String receiverPhone = "";
 String callerName = "";
 
 bool receivingCall = false;
+bool sendingCall = false;
 
 String personName = "";
 String personAge = "";
